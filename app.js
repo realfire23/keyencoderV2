@@ -3,6 +3,12 @@ const Readline = require('@serialport/parser-readline');
 const port = new SerialPort('/dev/ttyUSB0', {
     baudRate: 9600,
     autoOpen: true, // Specify autoOpen option explicitly
+    dataBits: 8,    // Add this option
+    stopBits: 1,    // Add this option
+    parity: 'none', // Add this option
+    rtscts: false,  // Add this option
+    xon: false,     // Add this option
+    xoff: false,    // Add this option
 });
 
 const parser = port.pipe(new Readline({ delimiter: '\n' }));
